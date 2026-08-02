@@ -8,10 +8,10 @@ class GRendererText { private: struct _impl; std::unique_ptr<_impl> _; public: ~
         explicit GRendererText(uint32_t window_width, uint32_t window_height);
 
         struct Text { void* user_data = nullptr; GRendererText* _renderer_instance; uint64_t _id;
-                void SetSize(float size) noexcept;  // in pixels (default: 8.0f)
-                void SetPosX(float pos_x) noexcept;  // in pixels
-                void SetPosY(float pos_y) noexcept;  // in pixels
-                void SetColor(uint32_t color_RGBA) noexcept;
+                void SetSize(float size) noexcept; float GetSize() noexcept;  // in pixels (default: 8.0f)
+                void SetPosX(float pos_x) noexcept; float GetPosX() noexcept;  // in pixels
+                void SetPosY(float pos_y) noexcept; float GetPosY() noexcept;  // in pixels
+                void SetColor(uint32_t color_RGBA) noexcept; uint32_t GetColor() noexcept;
                 void Remove() noexcept;
         };
         Text* AddText(const std::string_view text) noexcept;
