@@ -27,12 +27,13 @@ GRendererText::GRendererText(uint32_t window_width, uint32_t window_height) { th
 
 GRendererText::Text GRendererText::AddText(const std::string_view text) { if (text.empty()) ERROR("text empty");
         Text out; out._renderer_instance = this; out._id = out._renderer_instance->_->NewUID();
-        for (const auto& letter : text) { out._renderer_instance->_->texts[out._id].push_back(this->_->gr2d->AddSprite(this->_->sprites_char[letter])); } out.SetSize(FONT_SIZE); out.SetPosY(0.0f); out.SetPosX(0.0f);
+        for (const auto& letter : text) { out._renderer_instance->_->texts[out._id].push_back(this->_->gr2d->AddSprite(this->_->sprites_char[letter])); } out.SetLetterSize(FONT_SIZE); out.SetPosY(0.0f); out.SetPosX(0.0f);
         return out;
 }
 
-void GRendererText::Text::SetSize(float size) noexcept { for (const auto& letter : this->_renderer_instance->_->texts[this->_id]) { letter->size[0] = size; letter->size[1] = -size; } }
-float GRendererText::Text::GetSize() noexcept { return this->_renderer_instance->_->texts[this->_id][0]->size[0]; }
+void GRendererText::Text::SetLetterSize(float size) noexcept { for (const auto& letter : this->_renderer_instance->_->texts[this->_id]) { letter->size[0] = size; letter->size[1] = -size; } }
+float GRendererText::Text::GetLetterSize() noexcept { return this->_renderer_instance->_->texts[this->_id][0]->size[0]; }
+size_t GRendererText::Text::GetLetterCount() noexcept { return this->_renderer_instance->_->texts[this->_id].size(); }
 void GRendererText::Text::SetPosX(float pos_x) noexcept {
         for (size_t i = 0; i < this->_renderer_instance->_->texts[this->_id].size(); i++) {
                 GRenderer2D::SpriteInstance*& letter = this->_renderer_instance->_->texts[this->_id][i];

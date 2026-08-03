@@ -11,7 +11,8 @@ class GRendererText { private: struct _impl; std::unique_ptr<_impl> _; public: ~
         float camera_zoom = 1.0;
 
         struct Text { void* user_data = nullptr; GRendererText* _renderer_instance; uint64_t _id; ~Text() noexcept;
-                void SetSize(float size) noexcept; float GetSize() noexcept;  // in pixels (default: 8.0f)
+                void SetLetterSize(float size) noexcept; float GetLetterSize() noexcept;  // in pixels (default: 8.0f)
+                size_t GetLetterCount() noexcept;
                 void SetPosX(float pos_x) noexcept; float GetPosX() noexcept;  // in pixels
                 void SetPosY(float pos_y) noexcept; float GetPosY() noexcept;  // in pixels
                 void SetColor(uint32_t color_RGBA) noexcept; uint32_t GetColor() noexcept;
