@@ -1,1 +1,1 @@
-c++ -lGL -O2 -march=x86-64-v2 -I ../libs ../_EXAMPLE.cpp -o _EXAMPLE $(find ../libs -name "*_linux.a") ../../build/libGRendererText_linux.a
+c++ -O2 -march=x86-64-v2 -I ../libs ../_EXAMPLE.cpp -o _EXAMPLE $(find ../libs -name "*_linux.a") ../../build/libGRendererText_linux.a -lGL
