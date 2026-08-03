@@ -21,7 +21,8 @@ Minimalistic simple cross-platform text renderer
 #
 
 #### Text (created with `.AddText()`):
-- `.SetSize()`, `.GetSize()` (in pixels (default: `8.0f`))
+- `.SetLetterSize()`, `.GetLetterSize()` (in pixels (default: `8.0f`))
+- `.GetLetterCount()`
 - `.SetPosX()`, `.GetPosX()` (in pixels)
 - `.SetPosY()`, `.GetPosY()` (in pixels)
 - `.SetColor()`, `.GetColor()` (0xRRGGBBAA) (alpha less than 0x80 = hidden/invisible)
