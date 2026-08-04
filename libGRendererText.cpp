@@ -25,7 +25,7 @@ GRendererText::GRendererText(uint32_t window_width, uint32_t window_height) { th
         for (int i = 0; i < 128; i++) { this->_->sprites_char[i] = this->_->gr2d->CreateSprite(GFONT[i], FONT_SIZE, FONT_SIZE); }
 }
 
-GRendererText::Text GRendererText::AddText(const std::string_view text) { if (text.empty()) ERROR("text empty");
+GRendererText::Text GRendererText::AddText(const std::string text) { if (text.empty()) ERROR("text empty");
         Text out; out._renderer_instance = this; out._id = out._renderer_instance->_->NewUID();
         for (const auto& letter : text) { out._renderer_instance->_->texts[out._id].push_back(this->_->gr2d->AddSprite(this->_->sprites_char[letter])); } out.SetLetterSize(FONT_SIZE); out.SetPosY(0.0f); out.SetPosX(0.0f);
         return out;

@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <memory>
-#include <string_view>
+#include <string>
 
 class GRendererText { private: struct _impl; std::unique_ptr<_impl> _; public: ~GRendererText();
         explicit GRendererText(uint32_t window_width, uint32_t window_height);
@@ -17,7 +17,7 @@ class GRendererText { private: struct _impl; std::unique_ptr<_impl> _; public: ~
                 void SetPosY(float pos_y) noexcept; float GetPosY() noexcept;  // in pixels
                 void SetColor(uint32_t color_RGBA) noexcept; uint32_t GetColor() noexcept;
         };
-        Text AddText(const std::string_view text);
+        Text AddText(const std::string text);
 
         int DrawFrame() noexcept;  // returns non-0 on error
 };
