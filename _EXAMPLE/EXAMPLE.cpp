@@ -11,9 +11,11 @@
 
 
 int main() { try {
-        GWindower gw{1280, 720, 4, 6}; if (!gladLoadGL()) ERROR("Failed to load OpenGL");
+        GWindower gw{1280, 720, 4, 6};
 
-        GRendererText grtxt{1280, 720};  // TODO: FIX
+        if (!gladLoadGL()) ERROR("Failed to load OpenGL");
+
+        GRendererText grtxt;
 
         GRendererText::Text example = grtxt.AddText("Hello, World!");
         example.SetColor(0x87CEFAFF);
@@ -27,6 +29,6 @@ int main() { try {
                 example.SetPosY((float)gw.window_height/2 - example.GetLetterSize()/2);  // center vertically
                 example.SetPosX((float)gw.window_width/2 - example.GetLetterSize()*example.GetLetterCount()/2);  // center horizontally
 
-                grtxt.DrawFrame();
+                grtxt.DrawFrame(gw.window_width, gw.window_height);
         }
 } catch (const std::exception& e) { std::cout << e.what() << std::endl; return 1; } }

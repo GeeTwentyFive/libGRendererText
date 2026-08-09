@@ -5,7 +5,7 @@
 #include <string>
 
 class GRendererText { public: ~GRendererText(); private: struct _impl; std::unique_ptr<_impl> _; public:
-        explicit GRendererText(uint32_t window_width, uint32_t window_height);
+        explicit GRendererText();
 
         float camera_pos[2] = {0, 0};  // in Normalized Device Coordinates (-1 - 1)
         float camera_zoom = 1.0;
@@ -19,5 +19,5 @@ class GRendererText { public: ~GRendererText(); private: struct _impl; std::uniq
         };
         Text AddText(std::string text);
 
-        int DrawFrame() noexcept;  // returns non-0 on error
+        int DrawFrame(int framebuffer_width, int framebuffer_height) noexcept;  // returns non-0 on error
 };

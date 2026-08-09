@@ -4,9 +4,9 @@
 # Usage
 
 1) Create native window with OpenGL context (e.g. with [GWindower](https://github.com/GeeTwentyFive/libGWindower) or GLFW)
-2) `GRendererText grtxt{WINDOW_WIDTH, WINDOW_HEIGHT};`
+2) `GRendererText grtxt;`
 3) ...add text(s)...
-4) `grtxt.DrawFrame();` (+ do a `glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)` each frame (lib doesn't do that so that you can compose it with other rendering))
+4) `grtxt.DrawFrame(FRAMEBUFFER_WIDTH, FRAMEBUFFER_HEIGHT);` (+ do a `glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)` each frame (lib doesn't do that so that you can compose it with other rendering))
 
 
 # API
