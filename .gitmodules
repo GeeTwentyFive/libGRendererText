@@ -1,0 +1,9 @@
+[submodule "libs/GFont"]
+	path = libs/GFont
+	url = https://github.com/GeeTwentyFive/GFont.git
+[submodule "libs/libGRenderer2D"]
+	path = libs/libGRenderer2D
+	url = https://github.com/GeeTwentyFive/libGRenderer2D.git
+[submodule "_EXAMPLE/libs/libGWindower"]
+	path = _EXAMPLE/libs/libGWindower
+	url = https://github.com/GeeTwentyFive/libGWindower.git
