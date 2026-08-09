@@ -12,17 +12,15 @@
 
 int main() { try {
         GWindower gw{1280, 720, 4, 6}; if (!gladLoadGL()) ERROR("Failed to load OpenGL");
-        glViewport(0, 0, 1280, 720); glClearColor(0.0, 0.0, 0.0, 1.0);
 
-        GRendererText grtxt{1280, 720};
+        GRendererText grtxt{1280, 720};  // TODO: FIX
 
         GRendererText::Text example = grtxt.AddText("Hello, World!");
         example.SetColor(0x87CEFAFF);
-        //example.SetLetterSize((float)GWindower::GetScreenHeight() / 60);
-        //example.SetPosY((float)GWindower::GetScreenHeight()/2 - example.GetLetterSize()/2);  // center vertically
-        //example.SetPosX((float)GWindower::GetScreenWidth()/2 - example.GetLetterSize()*example.GetLetterCount()/2);  // center horizontally
 
+        glClearColor(0.0, 0.0, 0.0, 1.0);
         while (gw.Update(true, 0.1, true)) { if(gw.key_states[GWindower::KEY_ESCAPE]) break;
+                glViewport(0, 0, gw.window_width, gw.window_height);
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
                 example.SetLetterSize((float)gw.window_height / 60);
