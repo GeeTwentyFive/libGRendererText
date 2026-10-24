@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _LIBGRENDERERTEXT_H
+#define _LIBGRENDERERTEXT_H
 
 #include <stdint.h>
 #include <memory>
@@ -21,3 +22,5 @@ class GRendererText { public: ~GRendererText(); private: struct _impl; std::uniq
 
         int DrawFrame(int framebuffer_width, int framebuffer_height) noexcept;  // returns non-0 on error
 };
+
+#endif // _LIBGRENDERERTEXT_H
